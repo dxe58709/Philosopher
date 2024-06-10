@@ -6,7 +6,7 @@
 /*   By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 14:51:13 by nsakanou          #+#    #+#             */
-/*   Updated: 2024/06/10 18:57:15 by nsakanou         ###   ########.fr       */
+/*   Updated: 2024/06/10 21:33:00 by nsakanou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,12 @@ void			print_message(char *str, t_philo *philo);
 //time.c
 unsigned int	get_current_time(void);
 void			wait_for_action(t_philo *philo, time_t action_duration);
+unsigned int	update_last_meal_time(t_philo *philo);
 
 //stop.c
 bool			check_philo_die(t_data *data);
 void			set_stop(t_data *data);
+bool			can_continue_routine(t_philo *philo);
 
 //init
 bool			init_mutex(pthread_mutex_t *mutex, unsigned int count);

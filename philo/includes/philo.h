@@ -6,14 +6,12 @@
 /*   By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 14:37:07 by nsakanou          #+#    #+#             */
-/*   Updated: 2024/06/10 18:18:12 by nsakanou         ###   ########.fr       */
+/*   Updated: 2024/06/10 19:11:20 by nsakanou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILO_H
 # define PHILO_H
-
-# define PHILO_MAX 200
 
 # include "dinner.h"
 # include "utils.h"

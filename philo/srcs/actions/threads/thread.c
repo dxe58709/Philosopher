@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   start_dinner.c                                     :+:      :+:    :+:   */
+/*   thread.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/10 18:06:40 by nsakanou          #+#    #+#             */
-/*   Updated: 2024/06/10 20:26:12 by nsakanou         ###   ########.fr       */
+/*   Created: 2024/06/10 20:15:40 by nsakanou          #+#    #+#             */
+/*   Updated: 2024/06/10 20:29:32 by nsakanou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <philo.h>
+#include "philo.h"
 
-bool	start_dinner(t_data *data)
+bool	create_thread(pthread_t *thread, void *(*routine)(void *),
+		void *arg)
 {
-	if (!create_philosopher_threads(data))
-	{
-		print_error("Cannot create threads.\n");
+	if (pthread_create(thread, NULL, routine, arg) != 0)
 		return (false);
-	}
+	return (true);
+}
+
+bool	join_thread(pthread_t thread)
+{
+	if (pthread_join(thread, NULL) != 0)
+		return (false);
+	return (true);
 }
