@@ -6,11 +6,11 @@
 /*   By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 16:09:09 by nsakanou          #+#    #+#             */
-/*   Updated: 2024/06/10 18:26:10 by nsakanou         ###   ########.fr       */
+/*   Updated: 2024/06/11 16:15:58 by nsakanou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
+#include "philo.h"
 
 void	*ft_calloc(size_t count, size_t size)
 {

@@ -6,11 +6,11 @@
 /*   By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 20:49:47 by nsakanou          #+#    #+#             */
-/*   Updated: 2024/06/10 21:49:03 by nsakanou         ###   ########.fr       */
+/*   Updated: 2024/06/11 16:15:11 by nsakanou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "dinner.h"
+#include "philo.h"
 
 static bool	check_philosopher_death(t_philo *philo, unsigned int time_to_die)
 {

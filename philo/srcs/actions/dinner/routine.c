@@ -6,11 +6,11 @@
 /*   By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 19:21:08 by nsakanou          #+#    #+#             */
-/*   Updated: 2024/06/10 20:42:03 by nsakanou         ###   ########.fr       */
+/*   Updated: 2024/06/11 16:15:19 by nsakanou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "dinner.h"
+#include "philo.h"
 
 static bool	check_continue_routine(t_philo *philo)
 {

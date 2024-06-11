@@ -6,11 +6,11 @@
 /*   By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 15:02:30 by nsakanou          #+#    #+#             */
-/*   Updated: 2024/06/10 21:43:19 by nsakanou         ###   ########.fr       */
+/*   Updated: 2024/06/11 16:16:14 by nsakanou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
+#include "philo.h"
 
 unsigned int	get_current_time(void)
 {

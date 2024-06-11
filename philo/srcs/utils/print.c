@@ -6,11 +6,11 @@
 /*   By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 15:01:37 by nsakanou          #+#    #+#             */
-/*   Updated: 2024/06/10 18:56:43 by nsakanou         ###   ########.fr       */
+/*   Updated: 2024/06/11 16:16:04 by nsakanou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
+#include "philo.h"
 
 void	print_message(char *str, t_philo *philo)
 {

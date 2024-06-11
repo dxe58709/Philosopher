@@ -6,11 +6,11 @@
 /*   By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 18:24:41 by nsakanou          #+#    #+#             */
-/*   Updated: 2024/06/10 20:01:42 by nsakanou         ###   ########.fr       */
+/*   Updated: 2024/06/11 16:16:08 by nsakanou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
+#include "philo.h"
 
 bool	check_philo_die(t_data *data)
 {

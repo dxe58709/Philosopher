@@ -6,7 +6,7 @@
 #    By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/10 14:36:01 by nsakanou          #+#    #+#              #
-#    Updated: 2024/06/10 14:36:24 by nsakanou         ###   ########.fr        #
+#    Updated: 2024/06/11 16:11:24 by nsakanou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,25 +17,29 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror -g
 RM = rm -f
 
-SRCS =	srcs/init/init_args.c \
-		srcs/init/mutex.c \
-		srcs/init/init_forks.c \
-		srcs/init/init_data.c \
-		srcs/utils/print.c \
-		srcs/utils/time.c \
-		srcs/philo_ft/philo_atoi.c \
-		srcs/philo_ft/philo_utils.c \
-		srcs/main.c \
-		srcs/actions/dinner/thread.c \
-		srcs/actions/dinner/check_die.c \
-		srcs/actions/dinner/death.c \
-		srcs/actions/dinner/start_dinner.c \
+SRCS =	srcs/actions/dinner/death.c \
+		srcs/actions/dinner/one_philo.c \
 		srcs/actions/dinner/routine.c \
-		srcs/actions/dinner/end_dinner.c \
+		srcs/actions/dinner/start_dinner.c \
 		srcs/actions/eat.c \
-		srcs/actions/forks.c \
+		srcs/actions/relese_forks.c \
+		srcs/actions/sleep.c \
+		srcs/actions/take_forks.c \
 		srcs/actions/think.c \
-		srcs/actions/sleep.c
+		srcs/actions/threads/philo_thread.c \
+		srcs/actions/threads/thread.c \
+		srcs/destroy/delete_data.c \
+		srcs/destroy/destroy_mutex.c \
+		srcs/init/init_args.c \
+		srcs/init/init_mutex.c \
+		srcs/init/init_philo_data.c \
+		srcs/init/init_thread.c \
+		srcs/utils/err_print.c \
+		srcs/utils/ft_calloc.c \
+		srcs/utils/philo_atoi.c \
+		srcs/utils/print.c \
+		srcs/utils/stop.c \
+		srcs/utils/time.c
 
 OBJS = $(SRCS:%.c=%.o)
 

@@ -6,11 +6,11 @@
 /*   By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 19:26:01 by nsakanou          #+#    #+#             */
-/*   Updated: 2024/06/10 19:38:26 by nsakanou         ###   ########.fr       */
+/*   Updated: 2024/06/11 16:15:15 by nsakanou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "dinner.h"
+#include "philo.h"
 
 void	*one_philo(t_philo *philo)
 {

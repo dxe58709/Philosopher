@@ -6,11 +6,11 @@
 /*   By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 18:44:26 by nsakanou          #+#    #+#             */
-/*   Updated: 2024/06/10 19:00:22 by nsakanou         ###   ########.fr       */
+/*   Updated: 2024/06/11 16:15:37 by nsakanou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "dinner.h"
+#include "philo.h"
 
 void	take_forks(t_philo *philo)
 {
