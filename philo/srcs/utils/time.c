@@ -6,7 +6,7 @@
 /*   By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 15:02:30 by nsakanou          #+#    #+#             */
-/*   Updated: 2024/06/11 16:16:14 by nsakanou         ###   ########.fr       */
+/*   Updated: 2024/06/11 17:16:15 by nsakanou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,15 @@ unsigned int	get_current_time(void)
 	return (ms);
 }
 
-unsigned int	update_last_meal_time(t_philo *philo)
+unsigned int	get_last_eaten_time(t_philo *philo)
 {
-	unsigned int	last_meal_time;
+	unsigned int	last_eaten_time;
 
 	pthread_mutex_lock(&philo->last_meal_time_mtx);
 	philo->last_meal_time = get_current_time();
-	last_meal_time = philo->last_meal_time;
+	last_eaten_time = philo->last_meal_time;
 	pthread_mutex_unlock(&philo->last_meal_time_mtx);
-	return (last_meal_time);
+	return (last_eaten_time);
 }
 
 void	wait_for_action(t_philo *philo, time_t action_duration)
@@ -41,7 +41,7 @@ void	wait_for_action(t_philo *philo, time_t action_duration)
 
 	while (get_current_time() < action_time)
 	{
-		if (check_philo_die(philo))
+		if (check_philo_die(philo->data))
 			return ;
 		usleep(100);
 	}

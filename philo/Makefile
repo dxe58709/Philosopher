@@ -6,7 +6,7 @@
 #    By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/10 14:36:01 by nsakanou          #+#    #+#              #
-#    Updated: 2024/06/11 16:11:24 by nsakanou         ###   ########.fr        #
+#    Updated: 2024/06/11 17:19:40 by nsakanou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,8 +39,9 @@ SRCS =	srcs/actions/dinner/death.c \
 		srcs/utils/philo_atoi.c \
 		srcs/utils/print.c \
 		srcs/utils/stop.c \
-		srcs/utils/time.c
-
+		srcs/utils/time.c \
+		srcs/main.c
+		
 OBJS = $(SRCS:%.c=%.o)
 
 .PHONY: all clean fclean re

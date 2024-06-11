@@ -6,7 +6,7 @@
 /*   By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 18:06:40 by nsakanou          #+#    #+#             */
-/*   Updated: 2024/06/10 20:26:12 by nsakanou         ###   ########.fr       */
+/*   Updated: 2024/06/11 17:13:04 by nsakanou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,4 +19,5 @@ bool	start_dinner(t_data *data)
 		print_error("Cannot create threads.\n");
 		return (false);
 	}
+	return (true);
 }

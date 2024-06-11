@@ -6,15 +6,15 @@
 /*   By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 20:28:56 by nsakanou          #+#    #+#             */
-/*   Updated: 2024/06/11 16:15:26 by nsakanou         ###   ########.fr       */
+/*   Updated: 2024/06/11 17:13:32 by nsakanou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-static bool	create_philosopher_threads(t_data *data)
+bool	create_philosopher_threads(t_data *data)
 {
-	int	i;
+	unsigned int	i;
 
 	i = 0;
 	while (i < data->args.number_of_philo)

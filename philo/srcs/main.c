@@ -6,7 +6,7 @@
 /*   By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 16:22:53 by nsakanou          #+#    #+#             */
-/*   Updated: 2024/06/10 17:41:01 by nsakanou         ###   ########.fr       */
+/*   Updated: 2024/06/11 17:21:00 by nsakanou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ int	main(int argc, char **argv)
 
 	if (!init_args(argc, argv, &data))
 		return (1);
-	if (!init_philo(&data))
+	if (!check_init_philo_data(&data))
 		return (1);
 	if (!start_dinner(&data))
 	{
-		dalete_data(&data);
+		delete_data(&data);
 		return (1);
 	}
-	dalete_data(&data);
+	delete_data(&data);
 	return (0);
 }

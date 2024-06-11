@@ -6,7 +6,7 @@
 /*   By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 14:37:07 by nsakanou          #+#    #+#             */
-/*   Updated: 2024/06/11 16:14:34 by nsakanou         ###   ########.fr       */
+/*   Updated: 2024/06/11 17:21:51 by nsakanou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct s_philo
 	pthread_mutex_t	*right_fork_mtx;
 	pthread_mutex_t	count_eaten_mtx;
 	pthread_mutex_t	last_meal_time_mtx;
-	t_data			*data;
+	struct s_data	*data;
 }	t_philo;
 
 typedef struct s_data
@@ -61,23 +61,25 @@ void			take_forks(t_philo *philo);
 void			release_forks(t_philo *philo);
 
 //eat.c
-void			philo_eating(t_data *data);
+void			philo_eating(t_philo *philo);
 void			count_eat(t_philo *philo);
 
 //think.c
-void			philo_thinking(t_data *data);
+void			philo_thinking(t_philo *philo);
 
 //sleep.c
-void			philo_sleeping(t_data *data);
+void			philo_sleeping(t_philo *philo);
 
 //threads
 bool			create_thread(pthread_t *thread, void *(*routine)(void *),
 					void *arg);
 bool			join_thread(pthread_t thread);
+bool			create_philosopher_threads(t_data *data);
 
 //dinner
 void			*philo_routine(void *args);
 void			*one_philo(t_philo *philo);
+bool			start_dinner(t_data *data);
 
 //utils
 int				philo_atoi(char *str);
@@ -90,7 +92,6 @@ void			print_message(char *str, t_philo *philo);
 //time.c
 unsigned int	get_current_time(void);
 void			wait_for_action(t_philo *philo, time_t action_duration);
-unsigned int	update_last_meal_time(t_philo *philo);
 
 //stop.c
 bool			check_philo_die(t_data *data);
@@ -99,8 +100,8 @@ bool			can_continue_routine(t_philo *philo);
 
 //init
 bool			init_mutex(pthread_mutex_t *mutex, unsigned int count);
-bool			init_args(int argc, char **argv, t_philo *philo);
-bool			check_init_philo_data(t_philo *philo);
+bool			init_args(int argc, char **argv, t_data *data);
+bool			check_init_philo_data(t_data *data);
 bool			check_init_thread(t_data *data);
 
 //destroy
