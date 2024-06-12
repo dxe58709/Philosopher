@@ -6,7 +6,7 @@
 /*   By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 16:30:21 by nsakanou          #+#    #+#             */
-/*   Updated: 2024/06/10 18:17:53 by nsakanou         ###   ########.fr       */
+/*   Updated: 2024/06/12 18:44:33 by nsakanou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ static bool	init_philo(t_data *data)
 	i = 0;
 	data->starting_time = 0;
 	data->stop = false;
+	if (!pthread_mutex_init(&data->print_mtx, NULL))
+		return (false);
 	while (i < data->args.number_of_philo)
 	{
 		data->philo[i].philo_id = i + 1;
@@ -35,7 +37,7 @@ static bool	init_philo(t_data *data)
 	return (true);
 }
 
-bool	check_init_philo_data(t_data *data)
+bool	can_init_philo_data(t_data *data)
 {
 	if (!init_philo(data))
 	{

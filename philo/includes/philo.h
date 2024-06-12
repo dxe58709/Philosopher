@@ -6,7 +6,7 @@
 /*   By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 14:37:07 by nsakanou          #+#    #+#             */
-/*   Updated: 2024/06/11 17:21:51 by nsakanou         ###   ########.fr       */
+/*   Updated: 2024/06/12 17:46:16 by nsakanou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_args
 
 typedef struct s_philo
 {
+	struct s_data	*data;
 	int				philo_id;
 	int				count_eaten;
 	unsigned int	last_meal_time;
@@ -40,7 +41,6 @@ typedef struct s_philo
 	pthread_mutex_t	*right_fork_mtx;
 	pthread_mutex_t	count_eaten_mtx;
 	pthread_mutex_t	last_meal_time_mtx;
-	struct s_data	*data;
 }	t_philo;
 
 typedef struct s_data
@@ -48,12 +48,12 @@ typedef struct s_data
 	t_args			args;
 	t_philo			*philo;
 	unsigned int	starting_time;
+	pthread_t		*threads;
+	pthread_t		monitor;
 	bool			stop;
 	pthread_mutex_t	stop_mtx;
 	pthread_mutex_t	print_mtx;
 	pthread_mutex_t	*forks_mtx;
-	pthread_t		*threads;
-	pthread_t		monitor;
 }	t_data;
 
 //forks
@@ -80,6 +80,7 @@ bool			create_philosopher_threads(t_data *data);
 void			*philo_routine(void *args);
 void			*one_philo(t_philo *philo);
 bool			start_dinner(t_data *data);
+void			*monitor_philos(void *args);
 
 //utils
 int				philo_atoi(char *str);
@@ -101,8 +102,8 @@ bool			can_continue_routine(t_philo *philo);
 //init
 bool			init_mutex(pthread_mutex_t *mutex, unsigned int count);
 bool			init_args(int argc, char **argv, t_data *data);
-bool			check_init_philo_data(t_data *data);
-bool			check_init_thread(t_data *data);
+bool			can_init_philo_data(t_data *data);
+bool			can_init_thread(t_data *data);
 
 //destroy
 void			destroy_mutex(pthread_mutex_t *mutex, unsigned int count);
