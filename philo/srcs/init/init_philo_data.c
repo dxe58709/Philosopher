@@ -6,7 +6,7 @@
 /*   By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 16:30:21 by nsakanou          #+#    #+#             */
-/*   Updated: 2024/06/13 18:20:12 by nsakanou         ###   ########.fr       */
+/*   Updated: 2024/06/14 00:53:07 by nsakanou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@ bool	init_philo_data(t_data *data)
 	unsigned int	i;
 
 	i = 0;
-	data->starting_time = 0;
-	data->exit_flag = false;
+	data->starting_time = get_current_time();
 	while (i < data->args.number_of_philo)
 	{
 		data->philo[i].philo_id = i + 1;
@@ -45,6 +44,7 @@ bool	can_init_philo_data(t_data *data)
 	if (!init_philo_data(data))
 	{
 		print_error("Failed to initialize philo_data.\n");
+		exit_flag(data);
 		return (false);
 	}
 	return (true);

@@ -6,7 +6,7 @@
 /*   By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 16:24:07 by nsakanou          #+#    #+#             */
-/*   Updated: 2024/06/13 15:35:37 by nsakanou         ###   ########.fr       */
+/*   Updated: 2024/06/14 00:52:45 by nsakanou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ bool	can_init_args(int argc, char **argv, t_data *data)
 	if (!init_args(argc, argv, data))
 	{
 		print_error("Failed to initialize arguments.\n");
+		exit_flag(data);
 		return (false);
 	}
 	return (true);

@@ -6,7 +6,7 @@
 /*   By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 16:22:53 by nsakanou          #+#    #+#             */
-/*   Updated: 2024/06/13 16:59:47 by nsakanou         ###   ########.fr       */
+/*   Updated: 2024/06/14 01:27:51 by nsakanou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,10 @@ int	main(int argc, char **argv)
 {
 	t_data	data;
 
-	if (!can_init_thread(&data))
-		return (1);
-	if (!can_init_mutex(&data))
-		return (1);
-	if (!can_init_args(argc, argv, &data))
-		return (1);
-	if (!can_init_philo_data(&data))
-		return (1);
-	if (!start_dinner(&data))
+	if (can_dinner(&data, argc, argv))
 	{
-		delete_data(&data);
-		return (1);
+		start_dinner(&data);
+		end_dinner(&data);
 	}
 	delete_data(&data);
 	return (0);

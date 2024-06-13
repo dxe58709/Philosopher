@@ -6,7 +6,7 @@
 /*   By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 14:37:07 by nsakanou          #+#    #+#             */
-/*   Updated: 2024/06/13 18:21:47 by nsakanou         ###   ########.fr       */
+/*   Updated: 2024/06/14 00:49:10 by nsakanou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,18 +73,25 @@ void			philo_sleeping(t_philo *philo);
 //dinner
 void			*philo_routine(void *args);
 void			*one_philo(t_philo *philo);
-bool			start_dinner(t_data *data);
+void			start_dinner(t_data *data);
+void			end_dinner(t_data *data);
 void			*monitor_philos(void *args);
+bool			can_dinner(t_data *data, int argc, char **argv);
 
 //threads
 bool			create_thread(pthread_t *thread, void *(*routine)(void *),
 					void *arg);
 bool			join_thread(pthread_t thread);
 bool			create_philo_threads(t_data *data);
+bool			join_philo_threads(t_data *data);
+bool			create_monitor_threads(t_data *data);
+bool			join_monitor_threads(t_data *data);
 
 //utils
 int				philo_atoi(char *str);
+int				ft_isdigit(int c);
 void			*ft_calloc(size_t count, size_t size);
+bool			check_correct_args(int argc, char **argv, t_data *data);
 
 //print
 void			print_error(char *str);

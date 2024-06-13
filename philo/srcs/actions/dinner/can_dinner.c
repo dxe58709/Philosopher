@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   destroy_mutex.c                                    :+:      :+:    :+:   */
+/*   can_dinner.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/10 15:04:12 by nsakanou          #+#    #+#             */
-/*   Updated: 2024/06/14 01:13:52 by nsakanou         ###   ########.fr       */
+/*   Created: 2024/06/13 22:38:11 by nsakanou          #+#    #+#             */
+/*   Updated: 2024/06/14 01:30:31 by nsakanou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	destroy_mutex(pthread_mutex_t *mutex, unsigned int count)
+bool	can_dinner(t_data *data, int argc, char **argv)
 {
-	unsigned int	i;
-
-	i = 0;
-	while (i < count)
+	data->exit_flag = false;
+	if (check_correct_args(argc, argv, data))
 	{
-		if (pthread_mutex_destroy(&mutex[i]) != 0)
-			print_error("Failed to destroy mutex\n");
-		i++;
+		if (!can_init_thread(data))
+			return (false);
+		if (!can_init_mutex(data))
+			return (false);
+		if (!can_init_args(argc, argv, data))
+			return (false);
+		if (!can_init_philo_data(data))
+			return (false);
 	}
+	return (true);
 }

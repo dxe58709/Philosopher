@@ -6,23 +6,33 @@
 /*   By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 18:06:40 by nsakanou          #+#    #+#             */
-/*   Updated: 2024/06/13 17:25:11 by nsakanou         ###   ########.fr       */
+/*   Updated: 2024/06/13 22:30:26 by nsakanou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <philo.h>
 
-bool	start_dinner(t_data *data)
+void	start_dinner(t_data *data)
 {
-	if (!create_philo_threads(data))
+	unsigned int	i;
+
+	i = 0;
+	data->starting_time = get_current_time();
+	while (i < data->args.number_of_philo)
 	{
-		print_error("Failed to create threads.\n");
-		return (false);
+		if (!create_thread(&data->threads[i], &philo_routine, &data->philo[i]))
+		{
+			print_error("Failed to create threads.\n");
+			return ;
+		}
+		i++;
 	}
-	if (pthread_create(&data->monitor, NULL, monitor_philos, (void *)data))
+	if (1 < data->args.number_of_philo)
 	{
-		print_error("Failed to create monitor threads.\n");
-		return (false);
+		if (!create_thread(&data->monitor, monitor_philos, data))
+		{
+			print_error("Failed to create monitor threads.\n");
+			return ;
+		}
 	}
-	return (true);
 }

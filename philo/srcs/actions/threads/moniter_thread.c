@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   destroy_mutex.c                                    :+:      :+:    :+:   */
+/*   moniter_thread.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/10 15:04:12 by nsakanou          #+#    #+#             */
-/*   Updated: 2024/06/14 01:13:52 by nsakanou         ###   ########.fr       */
+/*   Created: 2024/06/13 20:34:56 by nsakanou          #+#    #+#             */
+/*   Updated: 2024/06/13 21:35:32 by nsakanou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	destroy_mutex(pthread_mutex_t *mutex, unsigned int count)
+bool	create_monitor_threads(t_data *data)
 {
-	unsigned int	i;
+	if (!create_thread(&data->monitor, &monitor_philos, data))
+		return (false);
+	return (true);
+}
 
-	i = 0;
-	while (i < count)
-	{
-		if (pthread_mutex_destroy(&mutex[i]) != 0)
-			print_error("Failed to destroy mutex\n");
-		i++;
-	}
+bool	join_monitor_threads(t_data *data)
+{
+	if (!join_thread(data->monitor))
+		return (false);
+	return (true);
 }

@@ -6,7 +6,7 @@
 /*   By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 20:28:56 by nsakanou          #+#    #+#             */
-/*   Updated: 2024/06/13 17:29:42 by nsakanou         ###   ########.fr       */
+/*   Updated: 2024/06/13 20:33:35 by nsakanou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,37 @@ bool	create_philo_threads(t_data *data)
 	i = 0;
 	while (i < data->args.number_of_philo)
 	{
-		create_thread(&data->threads[i], &philo_routine, &data->philo[i]);
+		if (!create_thread(&data->threads[i], &philo_routine, &data->philo[i]))
+		{
+			exit_flag(data);
+			while (0 < i)
+			{
+				join_thread(data->threads[i]);
+				i--;
+			}
+			return (false);
+		}
 		i++;
 	}
 	i = 0;
 	while (i < data->args.number_of_philo)
 	{
-		join_thread(data->threads[i]);
+		if (!join_thread(data->threads[i]))
+			return (false);
+		i++;
+	}
+	return (true);
+}
+
+bool	join_philo_threads(t_data *data)
+{
+	unsigned int	i;
+
+	i = 0;
+	while (i < data->args.number_of_philo)
+	{
+		if (!join_thread(data->threads[i]))
+			return (false);
 		i++;
 	}
 	return (true);
