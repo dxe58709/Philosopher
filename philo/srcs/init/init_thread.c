@@ -6,7 +6,7 @@
 /*   By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 16:34:31 by nsakanou          #+#    #+#             */
-/*   Updated: 2024/06/12 17:46:01 by nsakanou         ###   ########.fr       */
+/*   Updated: 2024/06/13 16:25:20 by nsakanou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ static bool	init_thread(t_data *data)
 		free(data->threads);
 		return (false);
 	}
-	data->stop = false;
 	return (true);
 }
 
@@ -39,7 +38,7 @@ bool	can_init_thread(t_data *data)
 {
 	if (!init_thread(data))
 	{
-		print_error("Not allocation threads.\n");
+		print_error("Failed to initialize threads.\n");
 		return (false);
 	}
 	return (true);

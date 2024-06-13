@@ -6,7 +6,7 @@
 /*   By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 20:49:47 by nsakanou          #+#    #+#             */
-/*   Updated: 2024/06/11 17:04:19 by nsakanou         ###   ########.fr       */
+/*   Updated: 2024/06/13 18:19:50 by nsakanou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static unsigned int	get_last_eaten_time(t_philo *philo)
 	return (last_eaten_time);
 }
 
-static bool	check_time_to_die(t_philo *philo, unsigned int time_to_die)
+static bool	over_time_to_die(t_philo *philo, unsigned int time_to_die)
 {
 	unsigned int	last_meal_time;
 
@@ -42,20 +42,20 @@ void	*monitor_philos(void *args)
 	unsigned int	i;
 
 	data = (t_data *)args;
-	while (!check_philo_die(data))
+	while (!data->exit_flag && !check_philo_die(data))
 	{
 		i = 0;
 		while (i < data->args.number_of_philo)
 		{
-			if (check_time_to_die(&data->philo[i],
+			if (over_time_to_die(&data->philo[i],
 					data->args.time_to_die))
 			{
-				set_stop(data);
+				exit_flag(data);
 				return (NULL);
 			}
 			i++;
 		}
-		usleep(100);
+		usleep(1000);
 	}
 	return (NULL);
 }

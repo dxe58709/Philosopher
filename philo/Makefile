@@ -6,7 +6,7 @@
 #    By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/10 14:36:01 by nsakanou          #+#    #+#              #
-#    Updated: 2024/06/11 17:19:40 by nsakanou         ###   ########.fr        #
+#    Updated: 2024/06/13 18:29:34 by nsakanou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,10 +35,10 @@ SRCS =	srcs/actions/dinner/death.c \
 		srcs/init/init_philo_data.c \
 		srcs/init/init_thread.c \
 		srcs/utils/err_print.c \
+		srcs/utils/exit.c \
 		srcs/utils/ft_calloc.c \
 		srcs/utils/philo_atoi.c \
 		srcs/utils/print.c \
-		srcs/utils/stop.c \
 		srcs/utils/time.c \
 		srcs/main.c
 		

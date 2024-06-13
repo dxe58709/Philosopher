@@ -6,13 +6,13 @@
 /*   By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 16:24:07 by nsakanou          #+#    #+#             */
-/*   Updated: 2024/06/10 17:54:53 by nsakanou         ###   ########.fr       */
+/*   Updated: 2024/06/13 15:35:37 by nsakanou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-bool	init_args(int argc, char **argv, t_data *data)
+static bool	init_args(int argc, char **argv, t_data *data)
 {
 	if (!(argc == 5 || argc == 6))
 	{
@@ -27,5 +27,15 @@ bool	init_args(int argc, char **argv, t_data *data)
 		data->args.number_of_eat = philo_atoi(argv[5]);
 	else
 		data->args.number_of_eat = -1;
+	return (true);
+}
+
+bool	can_init_args(int argc, char **argv, t_data *data)
+{
+	if (!init_args(argc, argv, data))
+	{
+		print_error("Failed to initialize arguments.\n");
+		return (false);
+	}
 	return (true);
 }

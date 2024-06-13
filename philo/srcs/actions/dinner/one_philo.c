@@ -6,7 +6,7 @@
 /*   By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 19:26:01 by nsakanou          #+#    #+#             */
-/*   Updated: 2024/06/11 16:15:15 by nsakanou         ###   ########.fr       */
+/*   Updated: 2024/06/13 18:17:05 by nsakanou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	*one_philo(t_philo *philo)
 	print_message("is thinking", philo);
 	wait_for_action(philo, philo->data->args.time_to_die);
 	print_message("died", philo);
+	exit_flag(philo->data);
 	pthread_mutex_unlock(philo->left_fork_mtx);
 	return (NULL);
 }

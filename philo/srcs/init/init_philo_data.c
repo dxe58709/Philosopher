@@ -6,21 +6,19 @@
 /*   By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 16:30:21 by nsakanou          #+#    #+#             */
-/*   Updated: 2024/06/12 18:44:33 by nsakanou         ###   ########.fr       */
+/*   Updated: 2024/06/13 18:20:12 by nsakanou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-static bool	init_philo(t_data *data)
+bool	init_philo_data(t_data *data)
 {
 	unsigned int	i;
 
 	i = 0;
 	data->starting_time = 0;
-	data->stop = false;
-	if (!pthread_mutex_init(&data->print_mtx, NULL))
-		return (false);
+	data->exit_flag = false;
 	while (i < data->args.number_of_philo)
 	{
 		data->philo[i].philo_id = i + 1;
@@ -29,8 +27,13 @@ static bool	init_philo(t_data *data)
 		data->philo[i].left_fork_mtx = &data->forks_mtx[i];
 		data->philo[i].right_fork_mtx = &data->forks_mtx[(i + 1)
 			% data->args.number_of_philo];
-		pthread_mutex_init(&data->philo[i].count_eaten_mtx, NULL);
-		pthread_mutex_init(&data->philo[i].last_meal_time_mtx, NULL);
+		if (pthread_mutex_init(&data->philo[i].count_eaten_mtx, NULL)
+			|| pthread_mutex_init(&data->philo[i].last_meal_time_mtx, NULL))
+		{
+			print_error("Failed to initialize mutex.\n");
+			delete_data(data);
+			return (false);
+		}
 		data->philo[i].data = data;
 		i++;
 	}
@@ -39,9 +42,9 @@ static bool	init_philo(t_data *data)
 
 bool	can_init_philo_data(t_data *data)
 {
-	if (!init_philo(data))
+	if (!init_philo_data(data))
 	{
-		print_error("Not init philo_data.\n");
+		print_error("Failed to initialize philo_data.\n");
 		return (false);
 	}
 	return (true);

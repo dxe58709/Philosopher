@@ -6,7 +6,7 @@
 /*   By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 19:21:08 by nsakanou          #+#    #+#             */
-/*   Updated: 2024/06/12 17:30:04 by nsakanou         ###   ########.fr       */
+/*   Updated: 2024/06/13 18:26:11 by nsakanou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	*philo_routine(void *args)
 	philo = (t_philo *)args;
 	if (philo->data->args.number_of_philo == 1)
 		return (one_philo(philo));
-	while (!check_continue_routine(philo))
+	while (check_continue_routine(philo))
 	{
 		philo_eating(philo);
 		philo_sleeping(philo);

@@ -6,7 +6,7 @@
 /*   By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 18:06:40 by nsakanou          #+#    #+#             */
-/*   Updated: 2024/06/12 17:40:24 by nsakanou         ###   ########.fr       */
+/*   Updated: 2024/06/13 17:25:11 by nsakanou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,14 @@
 
 bool	start_dinner(t_data *data)
 {
-	if (!create_philosopher_threads(data))
+	if (!create_philo_threads(data))
 	{
-		print_error("Cannot create threads.\n");
+		print_error("Failed to create threads.\n");
+		return (false);
+	}
+	if (pthread_create(&data->monitor, NULL, monitor_philos, (void *)data))
+	{
+		print_error("Failed to create monitor threads.\n");
 		return (false);
 	}
 	return (true);
