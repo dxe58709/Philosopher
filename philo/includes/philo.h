@@ -6,7 +6,7 @@
 /*   By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 14:37:07 by nsakanou          #+#    #+#             */
-/*   Updated: 2024/06/14 15:43:43 by nsakanou         ###   ########.fr       */
+/*   Updated: 2024/06/14 15:50:24 by nsakanou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ bool			check_correct_args(int argc, char **argv, t_data *data);
 
 //print
 void			print_error(char *str);
+void			err_print_exit(char *str, t_data *data);
 void			print_message(char *str, t_philo *philo);
 
 //time.c
