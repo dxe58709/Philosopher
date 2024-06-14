@@ -6,7 +6,7 @@
 /*   By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 18:06:40 by nsakanou          #+#    #+#             */
-/*   Updated: 2024/06/13 22:30:26 by nsakanou         ###   ########.fr       */
+/*   Updated: 2024/06/14 15:41:54 by nsakanou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	start_dinner(t_data *data)
 		}
 		i++;
 	}
-	if (1 < data->args.number_of_philo)
+	if (data->args.number_of_philo > 1)
 	{
 		if (!create_thread(&data->monitor, monitor_philos, data))
 		{
@@ -36,3 +36,25 @@ void	start_dinner(t_data *data)
 		}
 	}
 }
+
+// void start_dinner(t_data *data)
+// {
+//     unsigned int i;
+
+//     for (i = 0; i < data->args.number_of_philo; i++)
+//     {
+//         if (!create_thread(&data->threads[i], &philo_routine, &data->philo[i]))
+//         {
+//             for (unsigned int j = 0; j < i; j++)
+//                 pthread_join(data->threads[j], NULL);
+//             return;
+//         }
+//     }
+
+//     if (!create_thread(&data->monitor, monitor_philos, data))
+//     {
+//         for (unsigned int j = 0; j < data->args.number_of_philo; j++)
+//             pthread_join(data->threads[j], NULL);
+//         return;
+//     }
+// }

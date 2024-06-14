@@ -6,7 +6,7 @@
 /*   By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 22:22:02 by nsakanou          #+#    #+#             */
-/*   Updated: 2024/06/14 01:07:48 by nsakanou         ###   ########.fr       */
+/*   Updated: 2024/06/14 15:40:51 by nsakanou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	end_dinner(t_data *data)
 		}
 		i++;
 	}
-	if (1 < data->args.number_of_philo)
+	if (data->args.number_of_philo > 1)
 	{
 		if (!join_thread(data->monitor))
 		{

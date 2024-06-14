@@ -6,7 +6,7 @@
 #    By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/10 14:36:01 by nsakanou          #+#    #+#              #
-#    Updated: 2024/06/14 00:54:57 by nsakanou         ###   ########.fr        #
+#    Updated: 2024/06/14 15:43:24 by nsakanou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,14 +23,12 @@ SRCS =	srcs/actions/dinner/death.c \
 		srcs/actions/dinner/routine.c \
 		srcs/actions/dinner/start_dinner.c \
 		srcs/actions/dinner/end_dinner.c \
+		srcs/actions/dinner/thread.c \
 		srcs/actions/eat.c \
 		srcs/actions/relese_forks.c \
 		srcs/actions/sleep.c \
 		srcs/actions/take_forks.c \
 		srcs/actions/think.c \
-		srcs/actions/threads/philo_thread.c \
-		srcs/actions/threads/moniter_thread.c \
-		srcs/actions/threads/thread.c \
 		srcs/destroy/delete_data.c \
 		srcs/destroy/destroy_mutex.c \
 		srcs/init/init_args.c \

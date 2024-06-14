@@ -6,7 +6,7 @@
 /*   By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 14:37:07 by nsakanou          #+#    #+#             */
-/*   Updated: 2024/06/14 00:49:10 by nsakanou         ###   ########.fr       */
+/*   Updated: 2024/06/14 15:43:43 by nsakanou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,10 +82,6 @@ bool			can_dinner(t_data *data, int argc, char **argv);
 bool			create_thread(pthread_t *thread, void *(*routine)(void *),
 					void *arg);
 bool			join_thread(pthread_t thread);
-bool			create_philo_threads(t_data *data);
-bool			join_philo_threads(t_data *data);
-bool			create_monitor_threads(t_data *data);
-bool			join_monitor_threads(t_data *data);
 
 //utils
 int				philo_atoi(char *str);
