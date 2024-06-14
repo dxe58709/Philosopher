@@ -6,7 +6,7 @@
 /*   By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 16:10:53 by nsakanou          #+#    #+#             */
-/*   Updated: 2024/06/14 15:49:48 by nsakanou         ###   ########.fr       */
+/*   Updated: 2024/06/14 20:00:42 by nsakanou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,4 @@ void	print_error(char *str)
 {
 	ft_putstr_fd("Error : ", 2);
 	ft_putstr_fd(str, 2);
-}
-
-void	err_print_exit(char *str, t_data *data)
-{
-	pthread_mutex_lock(&data->print_mtx);
-	ft_putstr_fd("Error : ", 2);
-	ft_putstr_fd(str, 2);
-	data->exit_flag = true;
-	pthread_mutex_unlock(&data->print_mtx);
 }

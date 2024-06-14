@@ -6,7 +6,7 @@
 /*   By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 15:02:30 by nsakanou          #+#    #+#             */
-/*   Updated: 2024/06/11 17:16:15 by nsakanou         ###   ########.fr       */
+/*   Updated: 2024/06/14 21:22:53 by nsakanou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void	wait_for_action(t_philo *philo, time_t action_duration)
 	time_t	action_time;
 
 	action_time = get_current_time() + action_duration;
-
 	while (get_current_time() < action_time)
 	{
 		if (check_philo_die(philo->data))

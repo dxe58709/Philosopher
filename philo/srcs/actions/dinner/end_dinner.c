@@ -6,7 +6,7 @@
 /*   By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 22:22:02 by nsakanou          #+#    #+#             */
-/*   Updated: 2024/06/14 15:40:51 by nsakanou         ###   ########.fr       */
+/*   Updated: 2024/06/14 21:41:18 by nsakanou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ void	end_dinner(t_data *data)
 	{
 		if (!join_thread(data->threads[i]))
 		{
-			print_error("Failed to join philo threads.\n");
-			exit_flag(data);
+			err_print_exit(data, "Failed to join philo threads.\n");
 			return ;
 		}
 		i++;
@@ -31,8 +30,7 @@ void	end_dinner(t_data *data)
 	{
 		if (!join_thread(data->monitor))
 		{
-			print_error("Failed to join monitor threads.\n");
-			exit_flag(data);
+			err_print_exit(data, "Failed to join monitor threads.\n");
 			return ;
 		}
 	}

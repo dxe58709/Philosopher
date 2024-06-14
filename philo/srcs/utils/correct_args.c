@@ -6,39 +6,35 @@
 /*   By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:11:30 by nsakanou          #+#    #+#             */
-/*   Updated: 2024/06/14 00:59:34 by nsakanou         ###   ########.fr       */
+/*   Updated: 2024/06/14 21:45:00 by nsakanou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-static bool	only_digit(t_data *data, char *str)
+static bool	only_digit(char *str)
 {
 	int	i;
 
 	i = 0;
-	if (str == NULL)
+	if (str == NULL || str[0] == '\0')
+	{
+		print_error("Argument is empty or NULL.\n");
 		return (false);
+	}
 	while (str[i] != '\0')
 	{
 		if (!ft_isdigit(str[i]))
 		{
-			print_error("Not a valid string.\n");
-			exit_flag(data);
+			print_error("Argument is non-digit characters.\n");
 			return (false);
 		}
 		i++;
 	}
-	if (i == 0)
-	{
-		print_error("string is empty.\n");
-		exit_flag(data);
-		return (false);
-	}
 	return (true);
 }
 
-static bool	is_overflow(t_data *data, const char *str, int *result)
+static bool	is_overflow(const char *str, int *result)
 {
 	long long	nb;
 
@@ -48,8 +44,7 @@ static bool	is_overflow(t_data *data, const char *str, int *result)
 		nb = nb * 10 + (*str - '0');
 		if (nb > INT_MAX)
 		{
-			print_error("value is overflow.\n");
-			exit_flag(data);
+			print_error("Value is over INT_MAX.\n");
 			return (false);
 		}
 		str++;
@@ -58,36 +53,39 @@ static bool	is_overflow(t_data *data, const char *str, int *result)
 	return (true);
 }
 
-static bool	argv_value(t_data *data, int i, int result)
+static bool	argv_value(int i, int result)
 {
-	if (i == 1 && !(0 < result && result <= 200))//philo_max 200
+	if (i == 1 && !(0 < result && result <= 200))
 	{
-		print_error("Wrong number_of_philo.\n");
-		exit_flag(data);
+		print_error("Number of philo is out of range (1 to 200).\n");
 		return (false);
 	}
 	else if ((2 <= i && i <= 5) && result < 1)
 	{
 		print_error("Argument is wrong.\n");
-		exit_flag(data);
 		return (false);
 	}
 	return (true);
 }
 
-bool	check_correct_args(int argc, char **argv, t_data *data)
+bool	check_correct_args(int argc, char **argv)
 {
 	int	i;
 	int	correct_arg;
 
+	if (argc < 5 || 6 < argc)
+	{
+		print_error("Argc is wrong.\n");
+		return (false);
+	}
 	i = 1;
 	while (i < argc)
 	{
-		if (!only_digit(data, argv[i]))
+		if (!only_digit(argv[i]))
 			return (false);
-		if (!is_overflow(data, argv[i], &correct_arg))
+		if (!is_overflow(argv[i], &correct_arg))
 			return (false);
-		if (!argv_value(data, i, correct_arg))
+		if (!argv_value(i, correct_arg))
 			return (false);
 		i++;
 	}

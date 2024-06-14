@@ -6,7 +6,7 @@
 /*   By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 16:24:07 by nsakanou          #+#    #+#             */
-/*   Updated: 2024/06/14 00:52:45 by nsakanou         ###   ########.fr       */
+/*   Updated: 2024/06/14 21:37:14 by nsakanou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,6 @@
 
 static bool	init_args(int argc, char **argv, t_data *data)
 {
-	if (!(argc == 5 || argc == 6))
-	{
-		print_error("argc is wrong.\n");
-		return (false);
-	}
 	data->args.number_of_philo = philo_atoi(argv[1]);
 	data->args.time_to_die = philo_atoi(argv[2]);
 	data->args.time_to_eat = philo_atoi(argv[3]);
@@ -35,7 +30,6 @@ bool	can_init_args(int argc, char **argv, t_data *data)
 	if (!init_args(argc, argv, data))
 	{
 		print_error("Failed to initialize arguments.\n");
-		exit_flag(data);
 		return (false);
 	}
 	return (true);

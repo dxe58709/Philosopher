@@ -6,7 +6,7 @@
 /*   By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 16:34:31 by nsakanou          #+#    #+#             */
-/*   Updated: 2024/06/14 00:53:54 by nsakanou         ###   ########.fr       */
+/*   Updated: 2024/06/14 21:38:07 by nsakanou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ bool	can_init_thread(t_data *data)
 	if (!init_thread(data))
 	{
 		print_error("Failed to initialize threads.\n");
-		exit_flag(data);
 		return (false);
 	}
 	return (true);

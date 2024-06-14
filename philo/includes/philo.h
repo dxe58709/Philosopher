@@ -6,7 +6,7 @@
 /*   By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 14:37:07 by nsakanou          #+#    #+#             */
-/*   Updated: 2024/06/14 15:50:24 by nsakanou         ###   ########.fr       */
+/*   Updated: 2024/06/14 21:45:20 by nsakanou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,11 +87,10 @@ bool			join_thread(pthread_t thread);
 int				philo_atoi(char *str);
 int				ft_isdigit(int c);
 void			*ft_calloc(size_t count, size_t size);
-bool			check_correct_args(int argc, char **argv, t_data *data);
+bool			check_correct_args(int argc, char **argv);
 
 //print
 void			print_error(char *str);
-void			err_print_exit(char *str, t_data *data);
 void			print_message(char *str, t_philo *philo);
 
 //time.c
@@ -101,6 +100,7 @@ void			wait_for_action(t_philo *philo, time_t action_duration);
 //exit.c
 bool			check_philo_die(t_data *data);
 void			exit_flag(t_data *data);
+void			err_print_exit(t_data *data, char *str);
 
 //init
 bool			can_init_mutex(t_data *data);

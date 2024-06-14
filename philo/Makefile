@@ -6,7 +6,7 @@
 #    By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/10 14:36:01 by nsakanou          #+#    #+#              #
-#    Updated: 2024/06/14 15:43:24 by nsakanou         ###   ########.fr        #
+#    Updated: 2024/06/14 21:26:02 by nsakanou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,3 +63,9 @@ fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
+
+__debug_configure__:
+	$(eval CC := gcc)
+	$(eval CFLAGS := -g -fsanitize=address -Wall -Wextra -Werror)
+
+debug: fclean __debug_configure__ all

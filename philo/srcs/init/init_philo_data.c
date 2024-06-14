@@ -6,7 +6,7 @@
 /*   By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 16:30:21 by nsakanou          #+#    #+#             */
-/*   Updated: 2024/06/14 00:53:07 by nsakanou         ###   ########.fr       */
+/*   Updated: 2024/06/14 21:37:46 by nsakanou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ bool	init_philo_data(t_data *data)
 			|| pthread_mutex_init(&data->philo[i].last_meal_time_mtx, NULL))
 		{
 			print_error("Failed to initialize mutex.\n");
-			delete_data(data);
 			return (false);
 		}
 		data->philo[i].data = data;
@@ -44,7 +43,6 @@ bool	can_init_philo_data(t_data *data)
 	if (!init_philo_data(data))
 	{
 		print_error("Failed to initialize philo_data.\n");
-		exit_flag(data);
 		return (false);
 	}
 	return (true);

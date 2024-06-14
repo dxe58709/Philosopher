@@ -6,7 +6,7 @@
 /*   By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 15:03:32 by nsakanou          #+#    #+#             */
-/*   Updated: 2024/06/14 14:24:23 by nsakanou         ###   ########.fr       */
+/*   Updated: 2024/06/14 21:42:12 by nsakanou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ bool	can_init_mutex(t_data *data)
 	if (!init_mutex(data))
 	{
 		print_error("Failed to initialize mutex.\n");
-		exit_flag(data);
 		return (false);
 	}
 	return (true);
