@@ -6,7 +6,7 @@
 /*   By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 23:11:30 by nsakanou          #+#    #+#             */
-/*   Updated: 2024/06/14 21:45:00 by nsakanou         ###   ########.fr       */
+/*   Updated: 2024/06/17 21:30:47 by nsakanou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,14 @@ static bool	is_overflow(const char *str, int *result)
 	return (true);
 }
 
-static bool	argv_value(int i, int result)
+static bool	check_argv_value(int argc, int result)
 {
-	if (i == 1 && !(0 < result && result <= 200))
+	if (argc == 1 && !(0 < result && result <= 250))
 	{
-		print_error("Number of philo is out of range (1 to 200).\n");
+		print_error("Number of philo is out of range (1 to 250).\n");
 		return (false);
 	}
-	else if ((2 <= i && i <= 5) && result < 1)
+	else if ((2 <= argc && argc <= 5) && result < 1)
 	{
 		print_error("Argument is wrong.\n");
 		return (false);
@@ -71,7 +71,7 @@ static bool	argv_value(int i, int result)
 bool	check_correct_args(int argc, char **argv)
 {
 	int	i;
-	int	correct_arg;
+	int	argv_value;
 
 	if (argc < 5 || 6 < argc)
 	{
@@ -83,9 +83,9 @@ bool	check_correct_args(int argc, char **argv)
 	{
 		if (!only_digit(argv[i]))
 			return (false);
-		if (!is_overflow(argv[i], &correct_arg))
+		if (!is_overflow(argv[i], &argv_value))
 			return (false);
-		if (!argv_value(i, correct_arg))
+		if (!check_argv_value(i, argv_value))
 			return (false);
 		i++;
 	}

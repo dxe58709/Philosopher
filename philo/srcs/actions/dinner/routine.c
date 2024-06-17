@@ -6,7 +6,7 @@
 /*   By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 19:21:08 by nsakanou          #+#    #+#             */
-/*   Updated: 2024/06/14 21:45:53 by nsakanou         ###   ########.fr       */
+/*   Updated: 2024/06/17 21:16:14 by nsakanou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,14 @@ void	*philo_routine(void *args)
 
 	philo = (t_philo *)args;
 	if (philo->data->args.number_of_philo == 1)
+	{
+		if (philo->data->args.number_of_eat != -1)
+		{
+			print_error("No one philosopher can number_of_eat.\n");
+			return (NULL);
+		}
 		return (one_philo(philo));
+	}
 	while (check_continue_routine(philo))
 	{
 		philo_eating(philo);

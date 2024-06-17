@@ -6,7 +6,7 @@
 /*   By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 14:37:07 by nsakanou          #+#    #+#             */
-/*   Updated: 2024/06/14 21:45:20 by nsakanou         ###   ########.fr       */
+/*   Updated: 2024/06/17 20:57:43 by nsakanou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ void			release_forks(t_philo *philo);
 
 //eat.c
 void			philo_eating(t_philo *philo);
-void			count_eat(t_philo *philo);
 
 //think.c
 void			philo_thinking(t_philo *philo);

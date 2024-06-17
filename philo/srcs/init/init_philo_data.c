@@ -6,7 +6,7 @@
 /*   By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 16:30:21 by nsakanou          #+#    #+#             */
-/*   Updated: 2024/06/14 21:37:46 by nsakanou         ###   ########.fr       */
+/*   Updated: 2024/06/17 20:50:51 by nsakanou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ bool	init_philo_data(t_data *data)
 	{
 		data->philo[i].philo_id = i + 1;
 		data->philo[i].count_eaten = 0;
-		data->philo[i].last_meal_time = 0;
+		data->philo[i].last_meal_time = get_current_time();
 		data->philo[i].left_fork_mtx = &data->forks_mtx[i];
 		data->philo[i].right_fork_mtx = &data->forks_mtx[(i + 1)
 			% data->args.number_of_philo];
