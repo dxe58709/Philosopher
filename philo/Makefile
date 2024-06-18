@@ -6,7 +6,7 @@
 #    By: nsakanou <nsakanou@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/10 14:36:01 by nsakanou          #+#    #+#              #
-#    Updated: 2024/06/17 22:05:34 by nsakanou         ###   ########.fr        #
+#    Updated: 2024/06/18 11:26:40 by nsakanou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = philo
 
 INCLUDES = -I ./includes -I ./srcs
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g -fsanitize=thread
 RM = rm -f
 
 SRCS =	srcs/actions/dinner/death.c \
