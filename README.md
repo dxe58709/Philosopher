@@ -16,7 +16,7 @@ First, clone this repository and `cd` into it:
 
 ```zsh
 #!/bin/zsh
-git clone https://github.com/dxe58709/philosophers; cd philosophers
+git clone https://github.com/dxe58709/philosophers; cd philosophers/philo
 ```
 
 Compile using `make`:
